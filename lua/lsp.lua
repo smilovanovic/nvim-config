@@ -136,13 +136,3 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
-
-vim.api.nvim_exec(
-  [[
-augroup FormatAutogroup
-  autocmd!
-  autocmd BufWritePost *.js,*.ts,*.json,*.lua FormatWrite
-augroup END
-]],
-  true
-)
