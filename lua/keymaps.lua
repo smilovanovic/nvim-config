@@ -33,3 +33,7 @@ map("n", "<Leader>se", ":SaveSession<cr>", default_opts)
 map("n", "<Leader>fs", ":Telescope current_buffer_fuzzy_find<cr>", default_opts)
 
 map("n", "<C-f>", "<cmd>:Neoformat<CR>", default_opts)
+
+-- move outside of the brackets for autopairs
+map("i", "<C-a>", "<esc>la", default_opts)
+

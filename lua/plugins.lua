@@ -12,6 +12,7 @@ return require("packer").startup(function()
   use "saadparwaiz1/cmp_luasnip"
   use {"nvim-telescope/telescope.nvim", requires = {{"nvim-lua/plenary.nvim"}}}
   use "morhetz/gruvbox"
+  use "EdenEast/nightfox.nvim"
   use "vim-airline/vim-airline"
   use "vim-airline/vim-airline-themes"
   use "tpope/vim-fugitive"

@@ -5,11 +5,12 @@ local opt = vim.api.nvim_set_option
 local bopt = vim.api.nvim_buf_set_option
 local wopt = vim.api.nvim_win_set_option
 
-vim.cmd "colorscheme gruvbox"
+-- vim.cmd "colorscheme gruvbox"
 
 var("netrw_liststyle", 3)
 var("netrw_winsize", 30)
 var("mapleader", " ")
+opt("termguicolors", true)
 opt("ignorecase", true)
 opt("smartcase", true)
 opt("splitright", true)
@@ -33,9 +34,9 @@ vim.cmd [[
 
 -- disable builtins plugins
 local disabled_built_ins = {
-    "gzip", "zip", "zipPlugin", "tar", "tarPlugin", "getscript",
-    "getscriptPlugin", "vimball", "vimballPlugin", "2html_plugin", "logipat",
-    "rrhelper", "spellfile_plugin", "matchit"
+  "gzip", "zip", "zipPlugin", "tar", "tarPlugin", "getscript",
+  "getscriptPlugin", "vimball", "vimballPlugin", "2html_plugin", "logipat",
+  "rrhelper", "spellfile_plugin", "matchit"
 }
 
 for _, plugin in pairs(disabled_built_ins) do var("loaded_" .. plugin, 1) end
