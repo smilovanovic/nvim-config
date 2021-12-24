@@ -1,6 +1,8 @@
 local map = vim.api.nvim_set_keymap
 local default_opts = {noremap = true, silent = true}
 
+map("i", "<S-Tab>", "<C-d>", default_opts)
+
 -- move lines up and down when highlighted
 map("v", "J", ":m '>+1<CR>gv=gv", default_opts)
 map("v", "K", ":m '<-2<CR>gv=gv", default_opts)

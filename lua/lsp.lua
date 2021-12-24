@@ -45,6 +45,7 @@ local on_attach = function(client, bufnr)
 end
 
 local cmp = require "cmp"
+local lspkind = require("lspkind")
 
 cmp.setup({
   snippet = {
@@ -77,7 +78,20 @@ cmp.setup({
     -- { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
-  }, {{name = "buffer"}})
+  }, {{name = "buffer", keyword_length = 4}}),
+  experimental = {ghost_text = true},
+  formatting = {
+    format = lspkind.cmp_format({
+      with_text = true, -- do not show text alongside icons
+      -- maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+      menu = {
+        buffer = "[buf]",
+        nvim_lsp = "[LSP]",
+        path = "[path]",
+        luasnip = "[snip]"
+      }
+    })
+  }
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
