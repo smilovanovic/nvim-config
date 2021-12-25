@@ -23,6 +23,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   buf_set_keymap("n", "<Leader>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>",
                  opts)
+  buf_set_keymap("n", "<Leader>K",
+                 "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
   buf_set_keymap("n", "<Leader>wa",
                  "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
   buf_set_keymap("n", "<Leader>wr",
