@@ -46,64 +46,6 @@ local on_attach = function(client, bufnr)
   -- buf_set_keymap("n", "<Leader>f", "<cmd>lua vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line('$')+1,0})<CR>", opts)
 end
 
-local cmp = require "cmp"
-local lspkind = require("lspkind")
-
-cmp.setup({
-  snippet = {
-    -- REQUIRED - you must specify a snippet engine
-    expand = function(args)
-      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-      -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
-    end
-  },
-  mapping = {
-    ["<Tab>"] = cmp.mapping.select_next_item({
-      behavior = cmp.SelectBehavior.Insert
-    }),
-    ["<S-Tab>"] = cmp.mapping.select_prev_item({
-      behavior = cmp.SelectBehavior.Insert
-    }),
-    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {"i", "c"}),
-    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), {"i", "c"}),
-    ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), {"i", "c"}),
-    ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-    ["<C-e>"] = cmp.mapping({i = cmp.mapping.abort(), c = cmp.mapping.close()}),
-    -- Accept currently selected item. If none selected, `select` first item.
-    -- Set `select` to `false` to only confirm explicitly selected items.
-    ["<CR>"] = cmp.mapping.confirm({select = false})
-  },
-  sources = cmp.config.sources({
-    {name = "nvim_lsp"}, {name = "luasnip"} -- For vsnip users.
-    -- { name = 'luasnip' }, -- For luasnip users.
-    -- { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
-  }, {{name = "buffer", keyword_length = 4}}),
-  experimental = {ghost_text = true},
-  formatting = {
-    format = lspkind.cmp_format({
-      with_text = true, -- do not show text alongside icons
-      -- maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-      menu = {
-        buffer = "[buf]",
-        nvim_lsp = "[LSP]",
-        path = "[path]",
-        luasnip = "[snip]"
-      }
-    })
-  }
-})
-
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline("/", {sources = {{name = "buffer"}}})
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(":", {
-  sources = cmp.config.sources({{name = "path"}}, {{name = "cmdline"}})
-})
-
 -- Setup lspconfig.
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
@@ -111,7 +53,9 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = {"tsserver", "sumneko_lua", "jsonls", "html", "pyright"}
+local servers = {
+  "tsserver", "sumneko_lua", "jsonls", "html", "pyright", "dockerls"
+}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

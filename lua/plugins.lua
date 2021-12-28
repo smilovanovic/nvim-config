@@ -8,8 +8,9 @@ return require("packer").startup(function()
   use "hrsh7th/cmp-path"
   use "hrsh7th/cmp-cmdline"
   use "hrsh7th/nvim-cmp"
-  use "L3MON4D3/LuaSnip"
   use "saadparwaiz1/cmp_luasnip"
+  use "L3MON4D3/LuaSnip"
+  use "rafamadriz/friendly-snippets"
   use "onsails/lspkind-nvim"
   use {"nvim-telescope/telescope.nvim", requires = {{"nvim-lua/plenary.nvim"}}}
   use "morhetz/gruvbox"

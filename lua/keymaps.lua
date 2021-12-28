@@ -36,6 +36,11 @@ map("n", "<Leader>fs", ":Telescope current_buffer_fuzzy_find<cr>", default_opts)
 
 map("n", "<C-f>", "<cmd>:Neoformat<CR>", default_opts)
 
--- move outside of the brackets for autopairs
-map("i", "<C-a>", "<esc>la", default_opts)
+-- yank file name, relative path, full path and directory
+map("n", "<Leader>yfn", ":let @*=expand('%:t')<CR>", default_opts)
+map("n", "<Leader>yfr", ":let @*=expand('%')<CR>", default_opts)
+map("n", "<Leader>yfp", ":let @*=expand('%:p')<CR>", default_opts)
+map("n", "<Leader>yfd", ":let @*=expand('%:p:h')<CR>", default_opts)
 
+map("n", "<Leader>[", "::diffget //2<CR>", default_opts)
+map("n", "<Leader>]", "::diffget //3<CR>", default_opts)
