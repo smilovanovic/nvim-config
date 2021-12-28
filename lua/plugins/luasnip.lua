@@ -9,6 +9,9 @@ local has_words_before = function()
              :match("%s") == nil
 end
 
+require("luasnip/loaders/from_vscode").lazy_load()
+require("luasnip").filetype_extend("typescript", {"javascript"})
+
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
@@ -56,12 +59,15 @@ cmp.setup({
       end
     end, {"i", "s"})
   },
-  sources = cmp.config.sources({
-    {name = "nvim_lsp"}, {name = "luasnip"} -- For vsnip users.
-    -- { name = 'luasnip' }, -- For luasnip users.
-    -- { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
-  }, {{name = "buffer", keyword_length = 3}}),
+  -- sources = cmp.config.sources({
+  --   {name = "nvim_lsp"}, {name = "luasnip"} -- For vsnip users.
+  --   -- { name = 'luasnip' }, -- For luasnip users.
+  --   -- { name = 'ultisnips' }, -- For ultisnips users.
+  --   -- { name = 'snippy' }, -- For snippy users.
+  -- }, {{name = "buffer", keyword_length = 3}}),
+  sources = {
+    {name = "luasnip"}, {name = "nvim_lsp"}, {name = "buffer"}, {name = "path"}
+  },
   experimental = {ghost_text = true},
   formatting = {
     format = lspkind.cmp_format({
