@@ -27,4 +27,5 @@ return require("packer").startup(function()
   use "puremourning/vimspector"
   use "sbdchd/neoformat"
   use "windwp/nvim-autopairs"
+  use "norcalli/nvim-colorizer.lua"
 end)
