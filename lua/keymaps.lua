@@ -2,9 +2,6 @@ local map = vim.api.nvim_set_keymap
 local default_opts = {noremap = true, silent = true}
 
 -- prevent cut on delete and change
-map("n", "D", "\"_D", default_opts)
-map("n", "d", "\"_d", default_opts)
-map("v", "d", "\"_d", default_opts)
 map("n", "C", "\"_C", default_opts)
 map("n", "c", "\"_c", default_opts)
 map("v", "c", "\"_c", default_opts)
