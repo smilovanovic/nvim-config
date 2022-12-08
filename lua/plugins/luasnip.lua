@@ -9,15 +9,20 @@ local has_words_before = function()
              :match("%s") == nil
 end
 
+luasnip.filetype_extend("typescript", {"javascript"})
+luasnip.filetype_extend("typescript", {"javascriptreact"})
+luasnip.filetype_extend("javascript", {"javascriptreact"})
+luasnip.filetype_extend("javascript", {"html"})
+luasnip.filetype_extend("javascriptreact", {"html"})
+luasnip.filetype_extend("typescriptreact", {"html"})
 require("luasnip/loaders/from_vscode").lazy_load()
-require("luasnip").filetype_extend("typescript", {"javascript"})
 
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
       -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+      luasnip.lsp_expand(args.body) -- For `luasnip` users.
       -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
       -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
     end

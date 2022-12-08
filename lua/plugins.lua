@@ -15,8 +15,6 @@ return require("packer").startup(function()
   use {"nvim-telescope/telescope.nvim", requires = {{"nvim-lua/plenary.nvim"}}}
   use "morhetz/gruvbox"
   use "EdenEast/nightfox.nvim"
-  use "vim-airline/vim-airline"
-  use "vim-airline/vim-airline-themes"
   use "tpope/vim-fugitive"
   use {
     "rmagatti/session-lens",
@@ -28,4 +26,8 @@ return require("packer").startup(function()
   use "sbdchd/neoformat"
   use "windwp/nvim-autopairs"
   use "norcalli/nvim-colorizer.lua"
+  use {
+    "nvim-lualine/lualine.nvim",
+    requires = {"kyazdani42/nvim-web-devicons", opt = true}
+  }
 end)

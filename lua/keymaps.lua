@@ -43,7 +43,7 @@ map("n", "<C-f>", "<cmd>:Neoformat<CR>", default_opts)
 
 -- yank file name, relative path, full path and directory
 map("n", "<Leader>yfn", ":let @*=expand('%:t')<CR>", default_opts)
-map("n", "<Leader>yfr", ":let @*=expand('%')<CR>", default_opts)
+map("n", "<Leader>yfr", ":let @*=expand('%:')<CR>", default_opts)
 map("n", "<Leader>yfp", ":let @*=expand('%:p')<CR>", default_opts)
 map("n", "<Leader>yfd", ":let @*=expand('%:p:h')<CR>", default_opts)
 

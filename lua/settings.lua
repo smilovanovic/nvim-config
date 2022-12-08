@@ -6,6 +6,7 @@ local bopt = vim.api.nvim_buf_set_option
 local wopt = vim.api.nvim_win_set_option
 
 -- vim.cmd "colorscheme gruvbox"
+vim.cmd("colorscheme nightfox")
 
 var("netrw_liststyle", 3)
 var("netrw_winsize", 30)
