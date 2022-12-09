@@ -22,9 +22,9 @@ map("n", "<C-l>", "<C-w>l", default_opts)
 map("n", "<Leader>fw", "g*", default_opts)
 
 -- netrw file explorer
-map("n", "<Leader>nh", ":h netrw-quickmap<CR>", default_opts)
-map("n", "<Leader>nf", ":Lexplore %:p:h<CR>", default_opts)
-map("n", "<Leader>nt", ":Lexplore<CR>", default_opts)
+-- map("n", "<Leader>nh", ":h netrw-quickmap<CR>", default_opts)
+-- map("n", "<Leader>nf", ":Lexplore %:p:h<CR>", default_opts)
+-- map("n", "<Leader>nt", ":Lexplore<CR>", default_opts)
 
 -- Telescope bindings
 map("n", "<Leader>ff", ":Telescope find_files hidden=true<cr>", default_opts)

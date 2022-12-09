@@ -5,11 +5,14 @@ local opt = vim.api.nvim_set_option
 local bopt = vim.api.nvim_buf_set_option
 local wopt = vim.api.nvim_win_set_option
 
+var("loaded_netrw", 1)
+var("loaded_netrwPlugin", 1)
+-- var("netrw_liststyle", 3)
+-- var("netrw_winsize", 30)
+
 -- vim.cmd "colorscheme gruvbox"
 vim.cmd("colorscheme nightfox")
 
-var("netrw_liststyle", 3)
-var("netrw_winsize", 30)
 var("mapleader", " ")
 opt("termguicolors", true)
 opt("ignorecase", true)

@@ -25,9 +25,17 @@ return require("packer").startup(function()
   use "puremourning/vimspector"
   use "sbdchd/neoformat"
   use "windwp/nvim-autopairs"
+  use "windwp/nvim-ts-autotag"
   use "norcalli/nvim-colorizer.lua"
   use {
     "nvim-lualine/lualine.nvim",
     requires = {"kyazdani42/nvim-web-devicons", opt = true}
+  }
+  use "kylechui/nvim-surround"
+  use {
+    "nvim-tree/nvim-tree.lua",
+    requires = {
+      "nvim-tree/nvim-web-devicons" -- optional, for file icons
+    }
   }
 end)
