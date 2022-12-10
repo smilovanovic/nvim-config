@@ -101,7 +101,6 @@ return packer.startup(function(use)
 
 	-- git integration
 	use("tpope/vim-fugitive") -- all git commans in nvim using :G
-	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
 	if packer_bootstrap then
 		require("packer").sync()
