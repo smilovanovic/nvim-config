@@ -14,6 +14,8 @@ require("stefan.plugins.lsp.null-ls")
 require("stefan.plugins.autopairs")
 require("stefan.plugins.treesitter")
 require("stefan.plugins.gitsigns")
+require("stefan.plugins.auto-session")
+require("stefan.plugins.nightfox")
 
 -- OLD CONFIGURATION
 -- require("backup-config.plugins")
