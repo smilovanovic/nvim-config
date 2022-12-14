@@ -33,6 +33,8 @@ return packer.startup(function(use)
 
 	use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
+	-- colorscheme
+	use({ "ellisonleao/gruvbox.nvim" })
 	use("EdenEast/nightfox.nvim") -- preferred colorscheme
 
 	-- essential plugins
@@ -58,10 +60,8 @@ return packer.startup(function(use)
 	use({ "nvim-telescope/telescope.nvim" }) -- fuzzy finder
 
 	-- manage sessions to change projects
-	use({
-		"rmagatti/session-lens",
-		requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
-	})
+	use({ "rmagatti/auto-session" })
+	use({ "rmagatti/session-lens" })
 
 	-- autocompletion
 	use("hrsh7th/nvim-cmp") -- completion plugin
