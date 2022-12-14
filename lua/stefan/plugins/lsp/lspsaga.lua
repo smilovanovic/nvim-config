@@ -10,14 +10,9 @@ saga.init_lsp_saga({
 	-- use enter to open file with finder
 	finder_action_keys = {
 		open = "<CR>",
-		quit = { "<C-c>" },
 	},
 	-- use enter to open file with definition preview
 	definition_action_keys = {
 		edit = "<CR>",
-		quit = "<C-c>",
-	},
-	code_action_keys = {
-		quit = "<C-c>",
 	},
 })

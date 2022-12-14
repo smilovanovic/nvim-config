@@ -56,7 +56,8 @@ keymap.set("n", "<Leader>no", ":NvimTreeFocus<CR>")
 keymap.set("n", "<C-f>", "<cmd>lua vim.lsp.buf.format()<CR>")
 
 -- telescope
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>") -- find files within current working directory, respects .gitignore
+keymap.set("n", "<leader>ff", "<cmd>Telescope git_files hidden=true<cr>") -- find files within current working directory, respects .gitignore
+-- keymap.set("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>") -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>fF", "<cmd>Telescope find_files hidden=true no_ignore=true<cr>") -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>fS", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
