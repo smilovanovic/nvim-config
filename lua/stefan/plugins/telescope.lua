@@ -14,6 +14,8 @@ end
 telescope.setup({
 	-- configure custom mappings
 	defaults = {
+		layout_strategy = "vertical",
+		layout_config = { mirror = true },
 		extensions = {
 			fzf = {
 				fuzzy = true, -- false will only do exact matching

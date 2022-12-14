@@ -58,6 +58,7 @@ return packer.startup(function(use)
 		run = "make",
 	}) -- dependency for better sorting performance
 	use({ "nvim-telescope/telescope.nvim" }) -- fuzzy finder
+	use({ "ibhagwan/fzf-lua" })
 
 	-- manage sessions to change projects
 	use({ "rmagatti/auto-session" })

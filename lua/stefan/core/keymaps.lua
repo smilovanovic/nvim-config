@@ -59,12 +59,14 @@ keymap.set("n", "<C-f>", "<cmd>lua vim.lsp.buf.format()<CR>")
 keymap.set("n", "<leader>ff", "<cmd>Telescope git_files hidden=true<cr>") -- find files within current working directory, respects .gitignore
 -- keymap.set("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>") -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>fF", "<cmd>Telescope find_files hidden=true no_ignore=true<cr>") -- find files within current working directory, respects .gitignore
-keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
+-- keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
+keymap.set("n", "<leader>fg", "<cmd>FzfLua live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>fS", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<Leader>fs", "<cmd>Telescope current_buffer_fuzzy_find<cr>") -- find something in current buffer
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 keymap.set("n", "<Leader>fc", ":Telescope commands<cr>")
+keymap.set("n", "<Leader>qf", ":Telescope quickfix<cr>")
 
 -- Session management
 keymap.set("n", "<Leader>e", ":Telescope session-lens search_session<cr>")
