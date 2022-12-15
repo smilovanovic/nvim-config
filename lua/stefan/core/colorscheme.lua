@@ -9,6 +9,13 @@ if nf_status then
 	})
 end
 
+local gb_status, gruvbox = pcall(require, "gruvbox")
+if gb_status then
+	gruvbox.setup({
+		dim_inactive = true,
+	})
+end
+
 local status, _ = pcall(vim.cmd, "colorscheme gruvbox")
 if not status then
 	print("Colorscheme not found!") -- print error if colorscheme not installed

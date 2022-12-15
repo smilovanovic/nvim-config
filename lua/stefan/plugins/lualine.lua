@@ -15,4 +15,7 @@ lualine.setup({
 	sections = {
 		lualine_x = { "searchcount", auto_session.current_session_name, "filetype" },
 	},
+	options = {
+		globalstatus = true,
+	},
 })
