@@ -11,16 +11,30 @@ local keymap = vim.keymap -- for conciseness
 -- keymap.set("n", "<leader>+", "<C-a>") -- increment
 -- keymap.set("n", "<leader>-", "<C-x>") -- decrement
 
--- prevent cut on delete and change
+-- prevent cut
 keymap.set("n", "C", '"_C')
 keymap.set("n", "c", '"_c')
 keymap.set("v", "c", '"_c')
+keymap.set("n", "<leader>d", '"_d')
+keymap.set("n", "<leader>D", '"_D')
+keymap.set("v", "<leader>d", '"_d')
 
 keymap.set("i", "<S-Tab>", "<C-d>")
 
 -- move lines up and down when highlighted
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- center screen after up and down jumps
+keymap.set("n", "<C-d>", "<C-d>zz")
+keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- center screen for search results
+keymap.set("n", "n", "nzzzv")
+keymap.set("n", "N", "Nzzzv")
+
+-- preserve clipboard after visual paste
+keymap.set("x", "p", '"_dP')
 
 -- move around splits using Ctrl + {h,j,k,l}
 keymap.set("n", "<C-h>", "<C-w>h")
@@ -59,7 +73,7 @@ keymap.set("n", "<C-f>", "<cmd>lua vim.lsp.buf.format()<CR>")
 keymap.set("n", "<leader>ff", "<cmd>Telescope git_files hidden=true<cr>") -- find files within current working directory, respects .gitignore
 -- keymap.set("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>") -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>fF", "<cmd>Telescope find_files hidden=true no_ignore=true<cr>") -- find files within current working directory, respects .gitignore
--- keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
+keymap.set("n", "<leader>fG", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>fg", "<cmd>FzfLua live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>fS", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<Leader>fs", "<cmd>Telescope current_buffer_fuzzy_find<cr>") -- find something in current buffer

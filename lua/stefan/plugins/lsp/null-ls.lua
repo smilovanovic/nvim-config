@@ -23,7 +23,7 @@ null_ls.setup({
 		formatting.jq, -- json formatter
 		code_actions.eslint_d,
 		diagnostics.eslint_d, -- js/ts linter
-		diagnostics.tsc, -- js/ts linter
+		-- diagnostics.tsc, -- js/ts linter
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)
