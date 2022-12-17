@@ -35,7 +35,7 @@ return packer.startup(function(use)
 
 	-- colorscheme
 	use({ "ellisonleao/gruvbox.nvim" })
-	use("EdenEast/nightfox.nvim") -- preferred colorscheme
+	-- use("EdenEast/nightfox.nvim") -- preferred colorscheme
 
 	-- essential plugins
 	use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
@@ -105,6 +105,8 @@ return packer.startup(function(use)
 
 	-- git integration
 	use("tpope/vim-fugitive") -- all git commans in nvim using :G
+
+	use("lewis6991/impatient.nvim") -- make startup faster
 
 	if packer_bootstrap then
 		require("packer").sync()
