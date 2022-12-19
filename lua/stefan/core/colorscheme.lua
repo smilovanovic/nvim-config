@@ -7,6 +7,7 @@ if nf_status then
 			styles = { comments = "italic", keywords = "bold", types = "italic,bold" },
 		},
 	})
+	vim.cmd("colorscheme nightfox")
 end
 
 local gb_status, gruvbox = pcall(require, "gruvbox")
@@ -14,10 +15,5 @@ if gb_status then
 	gruvbox.setup({
 		dim_inactive = true,
 	})
-end
-
-local status, _ = pcall(vim.cmd, "colorscheme gruvbox")
-if not status then
-	print("Colorscheme not found!") -- print error if colorscheme not installed
-	return
+	vim.cmd("colorscheme gruvbox")
 end

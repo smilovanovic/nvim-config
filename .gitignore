@@ -3,3 +3,5 @@
 !init.lua
 !lua/
 !lua/**
+!after/
+!after/**
