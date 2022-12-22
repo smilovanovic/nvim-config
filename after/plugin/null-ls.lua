@@ -14,6 +14,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- configure null_ls
 null_ls.setup({
+	-- debug = true,
 	-- setup formatters & linters
 	sources = {
 		--  to disable file types use
@@ -23,7 +24,7 @@ null_ls.setup({
 		formatting.jq, -- json formatter
 		code_actions.eslint_d,
 		diagnostics.eslint_d, -- js/ts linter
-		-- diagnostics.tsc, -- js/ts linter
+		diagnostics.tsc, -- js/ts linter
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)
