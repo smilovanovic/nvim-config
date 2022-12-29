@@ -11,6 +11,11 @@ local keymap = vim.keymap -- for conciseness
 -- keymap.set("n", "<leader>+", "<C-a>") -- increment
 -- keymap.set("n", "<leader>-", "<C-x>") -- decrement
 
+-- close current buffer
+keymap.set("n", "<C-q>", ":bd<CR>")
+-- close all but the current buffer
+keymap.set("n", "<C-a>", ":%bdelete|edit#|bdelete#<CR>")
+
 -- prevent cut
 keymap.set("n", "C", '"_C')
 keymap.set("n", "c", '"_c')
@@ -76,7 +81,8 @@ keymap.set("n", "<leader>fF", "<cmd>Telescope find_files hidden=true no_ignore=t
 keymap.set("n", "<leader>fG", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>fg", "<cmd>FzfLua live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>fS", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
-keymap.set("n", "<Leader>fs", "<cmd>Telescope current_buffer_fuzzy_find<cr>") -- find something in current buffer
+-- keymap.set("n", "<Leader>fs", "<cmd>Telescope current_buffer_fuzzy_find previewer=false<cr>") -- find something in current buffer
+keymap.set("n", "<Leader>fs", "<cmd>FzfLua grep_curbuf<cr>") -- find something in current buffer
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 keymap.set("n", "<Leader>fc", ":Telescope commands<cr>")
@@ -93,4 +99,4 @@ keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git bra
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
 -- restart lsp server (not on youtube nvim video)
-keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mappin to restart lsp if necessary
