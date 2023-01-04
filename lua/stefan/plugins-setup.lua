@@ -57,8 +57,7 @@ return packer.startup(function(use)
 		"nvim-telescope/telescope-fzf-native.nvim",
 		run = "make",
 	}) -- dependency for better sorting performance
-	use({ "nvim-telescope/telescope.nvim", tag = "0.1.0" }) -- fuzzy finder
-	use({ "ibhagwan/fzf-lua" })
+	use({ "nvim-telescope/telescope.nvim" }) -- fuzzy finder
 
 	-- manage sessions to change projects
 	use({ "rmagatti/auto-session" })
