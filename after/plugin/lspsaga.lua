@@ -7,6 +7,9 @@ end
 saga.init_lsp_saga({
 	-- keybinds for navigation in lspsaga window
 	move_in_saga = { prev = "<C-k>", next = "<C-j>" },
+	code_action_keys = {
+		quit = "<ESC>",
+	},
 	-- use enter to open file with finder
 	finder_action_keys = {
 		open = "<CR>",
@@ -14,5 +17,6 @@ saga.init_lsp_saga({
 	-- use enter to open file with definition preview
 	definition_action_keys = {
 		edit = "<CR>",
+		quit = "<ESC>",
 	},
 })
