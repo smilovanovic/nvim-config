@@ -11,10 +11,12 @@ local keymap = vim.keymap -- for conciseness
 -- keymap.set("n", "<leader>+", "<C-a>") -- increment
 -- keymap.set("n", "<leader>-", "<C-x>") -- decrement
 
+keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
 -- close current buffer
-keymap.set("n", "<C-q>", ":bd<CR>")
+keymap.set("n", "<C-q>", ":bd!<CR>")
 -- close all but the current buffer
-keymap.set("n", "<C-a>", ":%bdelete|edit#|bdelete#<CR>")
+keymap.set("n", "<C-a>", ":%bdelete|edit#|bdelete#!<CR>")
 
 -- prevent cut
 keymap.set("n", "C", '"_C')
