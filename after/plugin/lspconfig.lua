@@ -24,20 +24,21 @@ local on_attach = function(client, bufnr)
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
 	-- set keybinds
-	keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts) -- got to declaration
-	-- keymap.set("n", "gD", "<cmd>Lspsaga peek_definition<CR>", opts) -- got to declaration
-	-- keymap.set("n", "gd", "<cmd>Lspsaga lsp_finder<CR>", opts) -- see definition and make edits in window
-	keymap.set("n", "gD", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- got to declaration
-	keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- see definition and make edits in window
-	keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- go to implementation
-	keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
-	keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
-	keymap.set("n", "<leader>sD", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
-	keymap.set("n", "<leader>sd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
-	keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
-	keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
-	keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
-	keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts) -- see outline on right hand side
+	-- Telescope
+	keymap.set("n", "gr", ":Telescope lsp_references<CR>", opts) -- got to declaration
+	keymap.set("n", "gD", ":Telescope lsp_type_definitions<CR>", opts) -- got to declaration
+	keymap.set("n", "gd", ":Telescope lsp_definitions<CR>", opts) -- see definition and make edits in window
+	keymap.set("n", "gi", ":Telescope lsp_implementations<CR>", opts) -- go to implementation
+	keymap.set("n", "<leader>sd", ":Telescope diagnostics<CR>", opts) -- show diagnostics for cursor
+	-- native
+	keymap.set("n", "<C-f>", function()
+		vim.lsp.buf.format({ async = true })
+	end, opts) -- format file
+	keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions
+	keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
+	keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
+	keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+	keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
 	-- typescript specific keymaps (e.g. rename file and update imports)
 	if client.name == "tsserver" then
