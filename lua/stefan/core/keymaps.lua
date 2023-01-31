@@ -62,6 +62,12 @@ keymap.set("n", "<Leader>yfd", ":let @*=expand('%:p:h')<CR>")
 keymap.set("n", "<Leader>[", "::diffget //2<CR>")
 keymap.set("n", "<Leader>]", "::diffget //3<CR>")
 
+-- quickfix list
+keymap.set("n", "<Leader>qo", ":co<CR>")
+keymap.set("n", "<Leader>qc", ":cclose<CR>")
+keymap.set("n", "<Leader>qn", ":cn<CR>")
+keymap.set("n", "<Leader>qp", ":cp<CR>")
+
 ----------------------
 -- Plugin Keybinds
 ----------------------
@@ -86,6 +92,7 @@ keymap.set("n", "<leader>fb", ":Telescope buffers<CR>") -- list open buffers in 
 keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>") -- list available help tags
 keymap.set("n", "<Leader>fc", ":Telescope commands<CR>")
 keymap.set("n", "<Leader>qf", ":Telescope quickfix<CR>")
+keymap.set("n", "<Leader>qh", ":Telescope quickfixhistory<CR>")
 keymap.set("n", "<Leader>su", ":Telescope spell_suggest<CR>")
 
 -- Session management
