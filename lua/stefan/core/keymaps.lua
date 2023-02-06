@@ -63,7 +63,7 @@ keymap.set("n", "<Leader>[", "::diffget //2<CR>")
 keymap.set("n", "<Leader>]", "::diffget //3<CR>")
 
 -- quickfix list
-keymap.set("n", "<Leader>qo", ":co<CR>")
+keymap.set("n", "<Leader>qo", ":copen<CR>")
 keymap.set("n", "<Leader>qc", ":cclose<CR>")
 keymap.set("n", "<Leader>qn", ":cn<CR>")
 keymap.set("n", "<Leader>qp", ":cp<CR>")
