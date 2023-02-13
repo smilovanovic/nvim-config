@@ -36,3 +36,4 @@ telescope.setup({
 
 telescope.load_extension("fzf")
 telescope.load_extension("session-lens")
+telescope.load_extension("search_dir_picker")
