@@ -17,7 +17,6 @@ if not lspkind_status then
 end
 
 local has_words_before = function()
-	unpack = unpack or table.unpack
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
@@ -26,6 +25,13 @@ end
 require("luasnip/loaders/from_vscode").lazy_load()
 
 vim.opt.completeopt = "menu,menuone,noselect"
+
+local default_sources = {
+	{ name = "nvim_lsp" }, -- lsp
+	{ name = "luasnip" }, -- snippets
+	{ name = "buffer" }, -- text within current buffer
+	{ name = "path" }, -- file system paths
+}
 
 cmp.setup({
 	snippet = {
@@ -64,12 +70,7 @@ cmp.setup({
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
 	}),
 	-- sources for autocompletion
-	sources = cmp.config.sources({
-		{ name = "nvim_lsp" }, -- lsp
-		{ name = "luasnip" }, -- snippets
-		{ name = "buffer" }, -- text within current buffer
-		{ name = "path" }, -- file system paths
-	}),
+	sources = cmp.config.sources(default_sources),
 	-- configure lspkind for vs-code like icons
 	formatting = {
 		format = lspkind.cmp_format({
@@ -80,9 +81,15 @@ cmp.setup({
 				nvim_lsp = "[LSP]",
 				path = "[path]",
 				luasnip = "[snip]",
+				nvim_lua = "[nvim]",
 			},
 		}),
 	},
+})
+
+-- add vim completion for lua files
+cmp.setup.filetype("lua", {
+	sources = cmp.config.sources({ unpack(default_sources), { name = "nvim_lua" } }),
 })
 
 -- `/` cmdline setup.
