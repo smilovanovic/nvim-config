@@ -53,12 +53,13 @@ return packer.startup(function(use)
 	-- statusline
 	use("nvim-lualine/lualine.nvim")
 
-	-- fuzzy finding w/ telescope
+	-- telescope
 	use({
 		"nvim-telescope/telescope-fzf-native.nvim",
 		run = "make",
 	}) -- dependency for better sorting performance
-	use({ "nvim-telescope/telescope.nvim" }) -- fuzzy finder
+	use({ "nvim-telescope/telescope.nvim" })
+	use("smilovanovic/telescope-search-dir-picker.nvim")
 
 	-- manage sessions to change projects
 	use({ "rmagatti/auto-session" })

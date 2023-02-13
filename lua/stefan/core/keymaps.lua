@@ -84,8 +84,8 @@ keymap.set("n", "<leader>ff", ":Telescope git_files hidden=true<CR>") -- find fi
 -- keymap.set("n", "<leader>ff", ":Telescope find_files hidden=true<CR>") -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>fF", ":Telescope find_files hidden=true no_ignore=true<CR>") -- find files within current working directory, respects .gitignore
 -- remove search_dirs for non ts projects
-keymap.set("n", "<leader>fg", ":Telescope live_grep search_dirs={'src'}<CR>") -- find string in current working directory as you type
-keymap.set("n", "<leader>fG", ":Telescope live_grep<CR>") -- find string in current working directory as you type
+keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>") -- find string in current working directory as you type
+keymap.set("n", "<leader>fG", ":Telescope search_dir_picker<CR>") -- live search in specific directory
 keymap.set("n", "<leader>fS", ":Telescope grep_string<CR>") -- find string under cursor in current working directory
 keymap.set("n", "<Leader>fs", ":Telescope current_buffer_fuzzy_find<CR>") -- find something in current buffer
 keymap.set("n", "<leader>fb", ":Telescope buffers<CR>") -- list open buffers in current neovim instance
