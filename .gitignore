@@ -5,3 +5,4 @@
 !lua/**
 !after/
 !after/**
+**/.luarc.json

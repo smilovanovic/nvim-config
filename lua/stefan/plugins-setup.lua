@@ -35,8 +35,6 @@ return packer.startup(function(use)
 
 	-- colorscheme
 	use({ "ellisonleao/gruvbox.nvim" })
-	use({ "folke/tokyonight.nvim" })
-	use({ "EdenEast/nightfox.nvim" })
 
 	-- essential plugins
 	use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
