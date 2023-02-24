@@ -94,6 +94,7 @@ keymap.set("n", "<Leader>fc", ":Telescope commands<CR>")
 keymap.set("n", "<Leader>qf", ":Telescope quickfix<CR>")
 keymap.set("n", "<Leader>qh", ":Telescope quickfixhistory<CR>")
 keymap.set("n", "<Leader>su", ":Telescope spell_suggest<CR>")
+keymap.set("n", "<Leader>fm", ":Telescope marks<CR>")
 
 -- Session management
 keymap.set("n", "<Leader>e", ":Telescope session-lens search_session<CR>")
