@@ -36,12 +36,6 @@ return {
 	}, -- easily configure language servers
 	--
 	-- formatting & linting
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		dependencies = {
-			"jayp0521/mason-null-ls.nvim", -- bridges gap b/w mason & null-ls
-		},
-	}, -- configure formatters & linters
 	--
 	-- -- git integration
 	"tpope/vim-fugitive", -- all git commans in nvim using :G
