@@ -1,3 +1,4 @@
 return {
-  "tpope/vim-surround",   -- add, delete, change surroundings (it's awesome)
+  "tpope/vim-surround", -- add, delete, change surroundings (it's awesome)
+  event = 'VeryLazy',
 }

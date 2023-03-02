@@ -1,3 +1,4 @@
 return {
-  "tpope/vim-fugitive",   -- all git commans in nvim using :G
+  "tpope/vim-fugitive", -- all git commans in nvim using :G
+  event = 'VeryLazy'
 }
