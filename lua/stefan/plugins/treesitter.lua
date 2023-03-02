@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	event = "VeryLazy",
 	build = function()
 		local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
 		ts_update()
@@ -20,5 +21,16 @@ return {
 	},
 	dependencies = {
 		"windwp/nvim-ts-autotag",
+		{
+			"windwp/nvim-autopairs", -- autoclose parens, brackets, quotes, etc...
+			opts = {
+				check_ts = true, -- enable treesitter
+				-- ts_config = {
+				-- 	lua = { "string" }, -- don't add pairs in lua string treesitter nodes
+				-- 	javascript = { "template_string" }, -- don't add pairs in javscript template_string treesitter nodes
+				-- 	java = false, -- don't check treesitter on java
+				-- },
+			},
+		},
 	},
 }
