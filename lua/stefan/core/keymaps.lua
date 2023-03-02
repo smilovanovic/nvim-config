@@ -72,30 +72,6 @@ keymap.set("n", "<Leader>qp", ":cp<CR>")
 -- Plugin Keybinds
 ----------------------
 
--- nvim-tree
-keymap.set("n", "<Leader>nh", ":h nvim-tree-default-mappings<CR>")
-keymap.set("n", "<Leader>nc", ":NvimTreeClose<CR>")
-keymap.set("n", "<Leader>nf", ":NvimTreeFindFile<CR>")
-keymap.set("n", "<Leader>nt", ":NvimTreeToggle<CR>")
-keymap.set("n", "<Leader>no", ":NvimTreeFocus<CR>")
-
--- telescope
-keymap.set("n", "<leader>ff", ":Telescope git_files hidden=true<CR>") -- find files within current working directory, respects .gitignore
--- keymap.set("n", "<leader>ff", ":Telescope find_files hidden=true<CR>") -- find files within current working directory, respects .gitignore
-keymap.set("n", "<leader>fF", ":Telescope find_files hidden=true no_ignore=true<CR>") -- find files within current working directory, respects .gitignore
--- remove search_dirs for non ts projects
-keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>") -- find string in current working directory as you type
-keymap.set("n", "<leader>fG", ":Telescope search_dir_picker<CR>") -- live search in specific directory
-keymap.set("n", "<leader>fS", ":Telescope grep_string<CR>") -- find string under cursor in current working directory
-keymap.set("n", "<Leader>fs", ":Telescope current_buffer_fuzzy_find<CR>") -- find something in current buffer
-keymap.set("n", "<leader>fb", ":Telescope buffers<CR>") -- list open buffers in current neovim instance
-keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>") -- list available help tags
-keymap.set("n", "<Leader>fc", ":Telescope commands<CR>")
-keymap.set("n", "<Leader>qf", ":Telescope quickfix<CR>")
-keymap.set("n", "<Leader>qh", ":Telescope quickfixhistory<CR>")
-keymap.set("n", "<Leader>su", ":Telescope spell_suggest<CR>")
-keymap.set("n", "<Leader>fm", ":Telescope marks<CR>")
-
 -- Session management
 keymap.set("n", "<Leader>e", ":Telescope session-lens search_session<CR>")
 keymap.set("n", "<Leader>se", ":SaveSession<CR>")

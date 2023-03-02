@@ -1,6 +1,4 @@
 require("stefan.core.disable")
-require("stefan.plugins-setup")
 require("stefan.core.options")
 require("stefan.core.keymaps")
-require("stefan.core.colorscheme")
-require("impatient")
+require("stefan.lazy")
