@@ -34,22 +34,4 @@ return {
 		telescope.load_extension("fzf")
 		telescope.load_extension("search_dir_picker")
 	end,
-	keys = {
-		-- telescope
-		{ "<leader>ff", ":Telescope git_files hidden=true<CR>" }, -- find files within current working directory, respects .gitignore
-		-- { "<leader>ff", ":Telescope find_files hidden=true<CR>" }, -- find files within current working directory, respects .gitignore
-		{ "<leader>fF", ":Telescope find_files hidden=true no_ignore=true<CR>" }, -- find files within current working directory, respects .gitignore
-		-- remove search_dirs for non ts projects
-		{ "<leader>fg", ":Telescope live_grep<CR>" }, -- find string in current working directory as you type
-		{ "<leader>fG", ":Telescope search_dir_picker<CR>" }, -- live search in specific directory
-		{ "<leader>fS", ":Telescope grep_string<CR>" }, -- find string under cursor in current working directory
-		{ "<Leader>fs", ":Telescope current_buffer_fuzzy_find<CR>" }, -- find something in current buffer
-		{ "<leader>fb", ":Telescope buffers<CR>" }, -- list open buffers in current neovim instance
-		{ "<leader>fh", ":Telescope help_tags<CR>" }, -- list available help tags
-		{ "<Leader>fc", ":Telescope commands<CR>" },
-		{ "<Leader>qf", ":Telescope quickfix<CR>" },
-		{ "<Leader>qh", ":Telescope quickfixhistory<CR>" },
-		{ "<Leader>su", ":Telescope spell_suggest<CR>" },
-		{ "<Leader>fm", ":Telescope marks<CR>" },
-	},
 }

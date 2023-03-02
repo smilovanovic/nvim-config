@@ -10,10 +10,6 @@ return {
 	"nvim-tree/nvim-web-devicons",
 	-- -- statusline
 	"nvim-lualine/lualine.nvim",
-	-- manage sessions to change projects
-	"rmagatti/auto-session",
-	--
-	--
 	-- configuring lsp servers
 	{
 		"neovim/nvim-lspconfig",
@@ -46,21 +42,6 @@ return {
 			"jayp0521/mason-null-ls.nvim", -- bridges gap b/w mason & null-ls
 		},
 	}, -- configure formatters & linters
-	--
-	-- treesitter configuration
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = function()
-			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-			ts_update()
-		end,
-		dependencies = {
-			"windwp/nvim-ts-autotag",
-		},
-	},
-	--
-	-- -- auto closing
-	"windwp/nvim-autopairs", -- autoclose parens, brackets, quotes, etc...
 	--
 	-- -- git integration
 	"tpope/vim-fugitive", -- all git commans in nvim using :G
