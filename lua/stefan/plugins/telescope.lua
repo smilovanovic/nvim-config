@@ -1,5 +1,6 @@
 return {
 	"nvim-telescope/telescope.nvim",
+	event = "VeryLazy",
 	build = "make",
 	dependencies = {
 		"nvim-telescope/telescope-fzf-native.nvim",
