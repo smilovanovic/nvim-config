@@ -19,6 +19,9 @@ return {
 		-- auto install above language parsers
 		auto_install = true,
 	},
+	config = function(_, opts)
+		require("nvim-treesitter.configs").setup(opts)
+	end,
 	dependencies = {
 		"windwp/nvim-ts-autotag",
 		{
