@@ -34,7 +34,7 @@ return {
     local keymap = vim.keymap -- for conciseness
 
     -- enable keybinds only for when lsp server available
-    local on_attach = function(_, bufnr)
+    local on_attach = function(client, bufnr)
       -- keybind options
       local opts = { noremap = true, silent = true, buffer = bufnr }
 
@@ -54,6 +54,22 @@ return {
       keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)        -- jump to previous diagnostic in buffer
       keymap.set("n", "]d", vim.diagnostic.goto_next, opts)        -- jump to next diagnostic in buffer
       keymap.set("n", "K", vim.lsp.buf.hover, opts)                -- show documentation for what is under cursor
+
+      if (client.name == "tsserver") then
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentFormattingRangeProvider = false
+      end
+      if (client.name == "eslint") then
+        client.server_capabilities.documentFormattingProvider = true
+        client.server_capabilities.documentFormattingRangeProvider = true
+      end
+
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format()
+        end
+      })
     end
 
     lsp.on_attach(on_attach)
@@ -134,7 +150,5 @@ return {
     vim.diagnostic.config({
       virtual_text = true,
     })
-
-    vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
   end
 }
