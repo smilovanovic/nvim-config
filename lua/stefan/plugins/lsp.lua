@@ -67,7 +67,7 @@ return {
       vim.api.nvim_create_autocmd("BufWritePre", {
         buffer = bufnr,
         callback = function()
-          vim.lsp.buf.format()
+          vim.lsp.buf.format({ timeout_ms = 2000 })
         end
       })
     end
