@@ -7,6 +7,7 @@ return {
     { 'neovim/nvim-lspconfig' },             -- Required
     { 'williamboman/mason.nvim' },           -- Optional
     { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+    { 'jose-elias-alvarez/typescript.nvim' },
 
     -- Autocompletion
     { 'hrsh7th/nvim-cmp' },         -- Required
@@ -56,6 +57,9 @@ return {
       keymap.set("n", "K", vim.lsp.buf.hover, opts)                -- show documentation for what is under cursor
 
       if (client.name == "tsserver") then
+        keymap.set("n", "<leader>ai", ":TypescriptAddMissingImports<CR>", opts)
+        keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>", opts)
+        keymap.set("n", "<leader>rn", ":TypescriptRenameFile<CR>", opts)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentFormattingRangeProvider = false
       end
@@ -74,7 +78,8 @@ return {
 
     lsp.on_attach(on_attach)
 
-    lsp.setup_servers({ 'tsserver', 'eslint', 'cssls', 'lua_ls', 'html' })
+    -- lsp.setup_servers({ 'tsserver', 'eslint', 'cssls', 'lua_ls', 'html' })
+    lsp.setup_servers({ 'eslint', 'cssls', 'lua_ls', 'html' })
 
     local cmp = require('cmp')
     local luasnip = require('luasnip')
@@ -146,6 +151,15 @@ return {
     lsp.nvim_workspace()
 
     lsp.setup()
+
+    require("typescript").setup({
+      go_to_source_definition = {
+        fallback = true, -- fall back to standard LSP definition on failure
+      },
+      server = {         -- pass options to lspconfig's setup method
+        on_attach = on_attach,
+      },
+    })
 
     vim.diagnostic.config({
       virtual_text = true,
